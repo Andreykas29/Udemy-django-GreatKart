@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, AbstractUser,UserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, AbstractUser, UserManager, User
 # Create your models here.
 
 
@@ -61,8 +61,6 @@ class Account(AbstractBaseUser):
 
     def has_perm(self, perm, obj=None):
         return self.is_admin
-
-
 
     def has_module_perms(self, add_label):
         return True
