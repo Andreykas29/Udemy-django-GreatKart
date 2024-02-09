@@ -18,14 +18,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-
 from greatkart.views import home
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
+    path('securelogin/', admin.site.urls),
     path('', home, name='home'),
     path('store/', include('store.urls'), name='store'),
     path('cart/', include('cards.urls'), name='cards'),
     path('accounts/', include('accounts.urls'), name='accounts'),
     path('orders/', include('orders.urls'), name='orders'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+from greatkart.views import home
 
